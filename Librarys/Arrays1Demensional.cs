@@ -16,14 +16,24 @@ namespace Librarys
             return array;
         }
 
-        public static void PrintArray(int[] array)
+        public static void PrintArrayOfInts(int[] array)
         {
             for (int i = 0; i < array.Length; i++)
             {
                 Console.Write($"{array[i]} ");
             }
+            Console.Write($"");
         }
-        
+
+        public static void PrintArrayOfDoubles(double[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write($"{array[i]} ");
+            }
+            Console.Write($"");
+        }
+
         public static int GetMinNumber(int[] array)
         {
             int minNum;

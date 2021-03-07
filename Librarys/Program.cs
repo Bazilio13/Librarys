@@ -6,20 +6,45 @@ namespace Librarys
     {
         static void Main(string[] args)
         {
-            int arraySizeI = 4;
-            int arraySizeJ = 3;
-            int [] array;
-            int result;
-            //array = Arrays2Demrnsioned.FillArray(arraySizeI, arraySizeJ);
-            //Arrays2Demrnsioned.Print(array);
-            //result = Arrays2Demrnsioned.FindMinNumber(array);
-            //Console.WriteLine(Arrays2Demrnsioned.CountBiggerNummbers(array));
-            //Arrays2Demrnsioned.Print(Arrays2Demrnsioned.TransposeArray(array));
-            //Arrays1Demensional.PrintArray(Cycles.GetDivisibleNumbers(10,0));
-            //array = Cycles.GetNumbersWithSumOfEvenMoreThenSumOfOdd(25);
-            Console.WriteLine(Cycles.CheckMatchOfNumbers(1111411,-2207));
-            //Arrays1Demensional.PrintArray(Cycles.GetNumbersWithSumOfEvenMoreThenSumOfOdd(25));
+            
+            string navigation = "";
+            bool showNav = true;
+            while (navigation != "exit")
+            {
+                if (showNav)
+                {
+                    Console.WriteLine("---------------------------------------------------------------" +
+                        "\nДОСТУПНЫЕ РАЗДЕЛЫ" +
+                        "\n1. Структуры ветвлений" +
+                        "\n2. Циклы" +
+                        "\n3. Одномерные массивы" +
+                        "\n4. Двумерные массивы");
+                }
+                Console.WriteLine("" +
+                    "\nВведите номер раздела или exit для выхода");
+                navigation = Console.ReadLine();
+                switch (navigation)
+                {
+                    case "1":
+                        navigation = Branches.ShowMenu();
+                        break;
+                    case "2":
+                        break;
+                    case "3":
+                        break;
+                    case "4":
+                        
+                        break;
+                    case "exit":
+                        return;
+                    default:
+                        showNav = false;
+                        Console.WriteLine("Введено некорректное значение, для выбора раздела введите цифру от 1 до 4");
+                        continue;
+                }
+                showNav = true;
 
+            }
         }
     }
 }

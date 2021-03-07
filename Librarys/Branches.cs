@@ -6,6 +6,91 @@ namespace Librarys
 {
     public static class Branches
     {
+        public static string ShowMenu()
+        {
+            string navigation = "";
+            bool showNav = true;
+            while (navigation != "exit" || navigation != "menu")
+            {
+                if (showNav)
+                {
+                    Console.WriteLine("---------------------------------------------------------------" +
+                        "\nРАЗДЕЛ \"СТРУКТУРЫ ВЕТВЛЕНИЙ\"" +
+                        "\n1. Пользователь вводит 2 числа (A и B). Если A>B, подсчитать A+B, если A=B, подсчитать A*B, если A<B, подсчитать A-B" +
+                        "\n2. Пользователь вводит 2 числа (X и Y). Определить какой четверти принадлежит точка с координатами (X,Y)" +
+                        "\n3. Пользователь вводит 3 числа (A, B и С). Выведите их в консоль в порядке возрастания" +
+                        "\n4. Пользователь вводит 3 числа (A, B и С). Выведите в консоль решение(значения X) квадратного уравнения стандартного вида, где AX2+BX+C=0" +
+                        "\n5. Пользователь вводит двузначное число. Выведите в консоль прописную запись этого числа. Например при вводе “25” в консоль будет выведено “двадцать пять”");
+                }
+                Console.WriteLine("" +
+                    "\nДля выбора задачи введите ее номер" +
+                    "\nДля выхода введите exit" +
+                    "\nДля выхода в основное меню введите back" +
+                    "\nДля повтора меню введите menu");
+                showNav = false;
+                navigation = Console.ReadLine();
+                switch (navigation)
+                {
+                    case "1":
+                        Console.WriteLine("Введите числа А и В");
+                        int a;
+                        int b;
+                        a = Convert.ToInt32(Console.ReadLine());
+                        b = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine($"Результат: {GetDifferenceOrProduct(a, b)}");
+                        break;
+                    case "2":
+                        Console.WriteLine("Введите значения X и Y");
+                        a = Convert.ToInt32(Console.ReadLine());
+                        b = Convert.ToInt32(Console.ReadLine());
+                        a = GetQuarter(a, b);
+                        if (a == 0)
+                        {
+                            Console.WriteLine($"Точка не принадлежит ни одной из четвертей");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Точка принадлежит четверти {a}");
+                        }
+                        break;
+                    case "3":
+                        int c;
+                        Console.WriteLine("Введите числа А, В и С");
+                        a = Convert.ToInt32(Console.ReadLine());
+                        b = Convert.ToInt32(Console.ReadLine());
+                        c = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine($"Результат: ");
+                        Arrays1Demensional.PrintArrayOfInts(SortThreeNumbers(a, b, c));
+                        break;
+                    case "4":
+                        Console.WriteLine("Введите числа А, В и С");
+                        a = Convert.ToInt32(Console.ReadLine());
+                        b = Convert.ToInt32(Console.ReadLine());
+                        c = Convert.ToInt32(Console.ReadLine());
+                        double[] result;
+                        result = GetXOfQuadraticEquation(a, b, c);
+                        Console.WriteLine($"Количество корней уравнения {result.Length}:");
+                        Arrays1Demensional.PrintArrayOfDoubles(result);
+                        break;
+                    case "5":
+                        Console.WriteLine("Введите число");
+                        a = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine($"Текстовый формат числа: {ConvertNumberToText(a)}");
+                        break;
+                    case "exit":
+                        return "exit";
+                    case "back":
+                        return "";
+                    case "menu":
+                        showNav = true;
+                        break;
+                    default:
+                        Console.WriteLine("Введено некорректное значение, для выбора раздела введите цифру от 1 до 4");
+                        continue;
+                }
+            }
+            return "";
+        }
         public static int GetDifferenceOrProduct(int a, int b)
         {
             if (a > b)
@@ -116,7 +201,8 @@ namespace Librarys
 
         public static double[] GetXOfQuadraticEquation(double a, double b, double c)
         {
-            
+            double d;
+            d = b * b - 4 * a * c;
             if (d < 0)
             {
                 throw new Exception("Дескриминант меньше 0, решений нет");
@@ -125,8 +211,6 @@ namespace Librarys
             {
                 double x1;
                 double x2;
-                double d;
-                d = b * b - 4 * a * c;
                 x1 = (-b + Math.Sqrt(d)) / (2 * a);
                 if (d == 0)
                 {
@@ -257,5 +341,6 @@ namespace Librarys
                 return str;
             }
         }
+        
     }
 }
