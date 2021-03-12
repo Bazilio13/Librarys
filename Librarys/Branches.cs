@@ -85,7 +85,7 @@ namespace Librarys
                         showNav = true;
                         break;
                     default:
-                        Console.WriteLine("Введено некорректное значение, для выбора раздела введите цифру от 1 до 4");
+                        Console.WriteLine("Введена неизвестная команда");
                         continue;
                 }
             }
@@ -228,6 +228,11 @@ namespace Librarys
 
         public static string ConvertNumberToText(int number)
         {
+            string result = "";
+            if (number < 0)
+            {
+                result = "минус ";
+            }
             number = Math.Abs(number);
             if (number < 10 || number > 99)
             {
@@ -235,7 +240,7 @@ namespace Librarys
             }
             int num1;
             int num2;
-            string str = "";
+            
             num1 = number / 10;
             num2 = number % 10;
             if (number < 20)
@@ -243,102 +248,102 @@ namespace Librarys
                 switch (number)
                 {
                     case 10:
-                        str = "десять";
+                        result += "десять";
                         break;
                     case 11:
-                        str = "одиннадцать";
+                        result += "одиннадцать";
                         break;
                     case 12:
-                        str = "двенадцать";
+                        result += "двенадцать";
                         break;
                     case 13:
-                        str = "тринадцать";
+                        result += "тринадцать";
                         break;
                     case 14:
-                        str = "четырнадцать";
+                        result += "четырнадцать";
                         break;
                     case 15:
-                        str = "пятнадцать";
+                        result += "пятнадцать";
                         break;
                     case 16:
-                        str = "шестнадцать";
+                        result += "шестнадцать";
                         break;
                     case 17:
-                        str = "семнадцать";
+                        result += "семнадцать";
                         break;
                     case 18:
-                        str = "восемнадцать";
+                        result += "восемнадцать";
                         break;
                     case 19:
-                        str = "девятнадцать";
+                        result += "девятнадцать";
                         break;
                 }
-                return str;
+                return result;
             }
             else
             {
                 switch (num1)
                 {
                     case 2:
-                        str = "двадцать";
+                        result += "двадцать";
                         break;
                     case 3:
-                        str = "тридцать";
+                        result += "тридцать";
                         break;
                     case 4:
-                        str = "сорок";
+                        result += "сорок";
                         break;
                     case 5:
-                        str = "пятьдесят";
+                        result += "пятьдесят";
                         break;
                     case 6:
-                        str = "шестьдесят";
+                        result += "шестьдесят";
                         break;
                     case 7:
-                        str = "семьдесят";
+                        result += "семьдесят";
                         break;
                     case 8:
-                        str = "восемьдесят";
+                        result += "восемьдесят";
                         break;
                     case 9:
-                        str = "девяносто";
+                        result += "девяносто";
                         break;
                 }
                 switch (num2)
                 {
                     case 0:
-                        str += "";
+                        result += "";
                         break;
                     case 1:
-                        str += " один";
+                        result += " один";
                         break;
                     case 2:
-                        str += " два";
+                        result += " два";
                         break;
                     case 3:
-                        str += " три";
+                        result += " три";
                         break;
                     case 4:
-                        str += " четыре";
+                        result += " четыре";
                         break;
                     case 5:
-                        str += " пять";
+                        result += " пять";
                         break;
                     case 6:
-                        str += " шесть";
+                        result += " шесть";
                         break;
                     case 7:
-                        str += " семь";
+                        result += " семь";
                         break;
                     case 8:
-                        str += " восемь";
+                        result += " восемь";
                         break;
                     case 9:
-                        str += " девять";
+                        result += " девять";
                         break;
 
                 }
-                return str;
+                return result;
             }
         }
         

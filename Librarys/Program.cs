@@ -15,10 +15,11 @@ namespace Librarys
                 {
                     Console.WriteLine("---------------------------------------------------------------" +
                         "\nДОСТУПНЫЕ РАЗДЕЛЫ" +
-                        "\n1. Структуры ветвлений" +
-                        "\n2. Циклы" +
-                        "\n3. Одномерные массивы" +
-                        "\n4. Двумерные массивы");
+                        "\n1. Переменные" +
+                        "\n2. Структуры ветвлений" +
+                        "\n3. Циклы" +
+                        "\n4. Одномерные массивы" +
+                        "\n5. Двумерные массивы");
                 }
                 Console.WriteLine("" +
                     "\nВведите номер раздела или exit для выхода");
@@ -26,20 +27,25 @@ namespace Librarys
                 switch (navigation)
                 {
                     case "1":
-                        navigation = Branches.ShowMenu();
+                        navigation = Varriables.ShowMenu();
                         break;
                     case "2":
+                        navigation = Branches.ShowMenu();
                         break;
                     case "3":
+                        navigation = Cycles.ShowMenu();
                         break;
                     case "4":
-                        
+                        navigation = Arrays1Demensional.ShowMenu();
+                        break;
+                    case "5":
+                        navigation = Arrays2Demensional.ShowMenu();
                         break;
                     case "exit":
                         return;
                     default:
                         showNav = false;
-                        Console.WriteLine("Введено некорректное значение, для выбора раздела введите цифру от 1 до 4");
+                        Console.WriteLine("Введена неизвестная команда");
                         continue;
                 }
                 showNav = true;
